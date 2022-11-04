@@ -1,63 +1,92 @@
 package squad28.web.api.modelo;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+
+@Document(collection = "cursos")
 public class Curso {
-    private Long id;
-    private String nome;
-    private String trilha;
 
-    public Curso(String nome, String trilha) {
-        this.nome = nome;
-        this.trilha = trilha;
+    @Id
+    private String id;
+    private String titulo;
+
+    private String imagem;
+
+    private String descricao;
+
+    private Boolean estaAtivo;
+
+    public String origemConteudo;
+
+    public String urlConteudo;
+
+
+    public Curso() {
     }
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-
-        return result;
+    public Curso(String id, String titulo, String imagem, String descricao, Boolean estaAtivo, String origemConteudo, String urlConteudo) {
+        this.id = id;
+        this.titulo = titulo;
+        this.imagem = imagem;
+        this.descricao = descricao;
+        this.estaAtivo = estaAtivo;
+        this.origemConteudo = origemConteudo;
+        this.urlConteudo = urlConteudo;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Curso other = (Curso) obj;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-
-        return true;
-    }
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getTitulo() {
+        return titulo;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
     }
 
-    public String getTrilha() {
-        return trilha;
+    public String getImagem() {
+        return imagem;
     }
 
-    public void setTrilha(String trilha) {
-        this.trilha = trilha;
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Boolean getEstaAtivo() {
+        return estaAtivo;
+    }
+
+    public void setEstaAtivo(Boolean estaAtivo) {
+        this.estaAtivo = estaAtivo;
+    }
+
+    public String getOrigemConteudo() {
+        return origemConteudo;
+    }
+
+    public void setOrigemConteudo(String origemConteudo) {
+        this.origemConteudo = origemConteudo;
+    }
+
+    public String getUrlConteudo() {
+        return urlConteudo;
+    }
+
+    public void setUrlConteudo(String urlConteudo) {
+        this.urlConteudo = urlConteudo;
     }
 }
